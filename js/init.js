@@ -98,10 +98,3 @@ if (!loggedin) {
         window.location = "login.html";
     });
 }
-
-// document.body.addEventListener("click",
-// function toggleTheme(){
-//   const html = document.querySelector('html');
-//   const theme = html.getAttribute('data-bs-theme');
-//   html.setAttribute('data-bs-theme', theme === 'dark' ? 'light' : 'dark');
-// })
