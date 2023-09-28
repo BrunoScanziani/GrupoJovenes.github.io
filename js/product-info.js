@@ -8,6 +8,8 @@ const COMMENTS = PRODUCT_INFO_COMMENTS_URL + id + EXT_TYPE;
 let Product = null;
 //Variable para guardar los comentarios.
 let Comments = null;
+//Variable al div de los productos relacionados
+var related = document.getElementById("products-related");
 
 //Muestra la info del producto al cargar la pagina
 document.addEventListener("DOMContentLoaded",function(e){
@@ -15,6 +17,7 @@ document.addEventListener("DOMContentLoaded",function(e){
         if (resultObj.status == "ok"){
             Product = resultObj.data;
             ShowProductInfo()
+            ShowRelated();
         }
     })
 
@@ -143,13 +146,14 @@ function dateConvert(dateString){
     return formattedDateStr;
 }
 
-var related = document.getElementById("related");
+
 
 function ShowRelated(){
     related.innerHTML = 
                         `
                         <br>
                             <h4>Productos relacionados</h4>
+                            <br>
                             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="width:50%">
                                 <div class="carousel-indicators">
                                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -157,17 +161,15 @@ function ShowRelated(){
                                 </div>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img src="${Product.relatedProducts[0].image}" class="d-block w-100">
+                                        <img src="${Product.relatedProducts[0].image}" onclick="setProdID(${Product.relatedProducts[0].id})" class="d-block w-100">
                                         <div class="carousel-caption d-none d-md-block">
                                             <h5>${Product.relatedProducts[0].name}</h5>
-                                            <p>alto auto</p>
                                         </div>
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="${Product.relatedProducts[1].image}" class="d-block w-100">
+                                        <img src="${Product.relatedProducts[1].image}" onclick="setProdID(${Product.relatedProducts[1].id})" class="d-block w-100">
                                         <div class="carousel-caption d-none d-md-block">
                                             <h5>${Product.relatedProducts[1].name}</h5>
-                                            <p>tremenda nave</p>
                                         </div>
                                     </div>
                                 </div>

@@ -75,4 +75,11 @@ if (!loggedin) {
     });
 }
 
+// Toma como parámetro el id del producto y lo almacena en el objeto localStorage del navegador.
+// Al clickear sobre un producto, redirige a la página product-info.html
+function setProdID(id) {
+  localStorage.setItem("ProdID", id);
+  window.location = "product-info.html"
+}
+
 
