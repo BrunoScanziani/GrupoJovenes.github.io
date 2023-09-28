@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded",function(e){
     })
 })
 
-
 //Variable asociada al div del producto.
 let container = document.getElementById("prod-container");
 
@@ -45,15 +44,43 @@ function ShowProductInfo(){
         <h5>Cantidad de vendidos</h5>
         <p>${Product.soldCount}</p>
         <h5>Imágenes ilustrativas</h5>
-        <div>
-            <img src=${Product.images[0]} class="img-thumbnail" width="24.5%"></img>
-            <img src=${Product.images[1]} class="img-thumbnail" width="24.5%"></img>
-            <img src=${Product.images[2]} class="img-thumbnail" width="24.5%"></img>
-            <img src=${Product.images[3]} class="img-thumbnail" width="24.5%"></img>
+        
+        <br>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width:50%">
+            <div class="carousel-indicators">
+                <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="${Product.images[0]}" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="${Product.images[1]}" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="${Product.images[2]}" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="${Product.images[3]}" class="d-block w-100">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+
         <br> <br> <br> <br>
         <h4>Comentarios</h4>
     `
+    ShowRelated();
 }
 
 //Variable asociada al div de los comentarios.
@@ -116,4 +143,43 @@ function dateConvert(dateString){
     var seconds = String(isoDate.getUTCSeconds()).padStart(2, "0");
     var formattedDateStr = `${year}-${month}-${day} ${hour}:${minutes}:${seconds}`;
     return formattedDateStr;
+}
+
+//Función para mostrar los productos relacionados.
+var related = document.getElementById("related");
+function ShowRelated(){
+    related.innerHTML = 
+                        `
+                        <br> <hr> <br>
+                            <h4>Productos relacionados</h4>
+                            <br>
+                            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="width:50%">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="${Product.relatedProducts[0].image}" class="d-block w-100" onclick="setProdID(${Product.relatedProducts[0].id})">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5><strong>${Product.relatedProducts[0].name}</strong></h5>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="${Product.relatedProducts[1].image}" class="d-block w-100" onclick="setProdID(${Product.relatedProducts[1].id})">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5><strong>${Product.relatedProducts[1].name}</strong></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        `
 }

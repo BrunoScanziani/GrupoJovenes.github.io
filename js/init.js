@@ -40,8 +40,15 @@ let getJSONData = function(url){
     });
 }
 
+// Toma como parámetro el id del producto y lo almacena en el objeto localStorage del navegador.
+// Al clickear sobre un producto, redirige a la página product-info.html
+function setProdID(id) {
+  localStorage.setItem("ProdID", id);
+  window.location = "product-info.html"
+}
 
-// Redirige el index al login en caso de no estar logeado
+// Redirige el index al login en caso de no estar logeado.
+// En caso de estar logeado, agrega el usuario con un dropdown menu.
 var loggedin = localStorage.getItem("email");
 
 if (!loggedin) {
@@ -49,22 +56,39 @@ if (!loggedin) {
 } else {
     let barra = document.getElementById("barra");
     let userNavItem = document.createElement("li");
-    userNavItem.className = "nav-item dropdown"; // Agregamos la clase 'dropdown' al elemento <li>
-    userNavItem.innerHTML = `
-        <a class="nav-link dropdown-toggle text-center" id="userDropdown" role="button" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <img src="img/nano.jpg" class="profile-image" alt="Imagen de perfil"> <!-- Imagen de perfil -->
-            ${localStorage.getItem("email")} <!-- El nombre de usuario se mostrará aquí -->
+
+    // Agregamos la clase 'dropdown' al elemento <li>
+    userNavItem.className = "nav-item dropdown";
+    userNavItem.innerHTML =
+    `
+        <a class="nav-link dropdown-toggle text-center" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+          <!-- Imagen de perfil -->
+            <img src="img/nano.jpg" class="profile-image" alt="Imagen de perfil">
+
+              <!-- El nombre de usuario se mostrará aquí -->
+                ${localStorage.getItem("email")}
+
         </a>
-        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"> <!-- Agregamos la clase 'dropdown-menu-end' para centrar a la derecha -->
-            <a class="dropdown-item" href="micarrito.html">Mi carrito</a> <!-- Redirige a la página de carrito -->
-            <a class="dropdown-item" href="miperfil.html">Mi perfil</a> <!-- Redirige a la página de perfil -->
+
+        <!-- Agregamos la clase 'dropdown-menu-end' para centrar a la derecha -->
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"> 
+
+            <!-- Redirige a la página de carrito -->
+              <a class="dropdown-item" href="cart.html">Mi carrito</a>
+
+            <!-- Redirige a la página de perfil -->
+              <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" id="cerrarSesion">Cerrar sesión</a> <!-- Agregamos un manejador de eventos al enlace de cierre de sesión -->
+
+            <!-- Agregamos un manejador de eventos al enlace de cierre de sesión -->
+              <a class="dropdown-item" href="#" id="cerrarSesion">Cerrar sesión</a>
+
         </div>
     `;
 
-    barra.innerHTML += userNavItem.outerHTML; // Agregamos el elemento <li> con el menú desplegable al final de la barra
+    // Agregamos el elemento <li> con el menú desplegable al final de la barra
+    barra.innerHTML += userNavItem.outerHTML;
 
     // Manejador de eventos para el enlace "Cerrar sesión"
     document.getElementById("cerrarSesion").addEventListener("click", function() {
@@ -75,4 +99,9 @@ if (!loggedin) {
     });
 }
 
-
+// document.body.addEventListener("click",
+// function toggleTheme(){
+//   const html = document.querySelector('html');
+//   const theme = html.getAttribute('data-bs-theme');
+//   html.setAttribute('data-bs-theme', theme === 'dark' ? 'light' : 'dark');
+// })
