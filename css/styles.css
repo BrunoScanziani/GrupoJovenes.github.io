@@ -224,3 +224,18 @@ a.custom-card:hover {
   margin-right: 10px; /* Espacio entre la imagen y el correo electrónico */
 }
 
+.jumbotron2 {
+  height: 50vh;
+  padding: 5em inherit;
+  margin-bottom: 0;
+  background: url('../img/fondoModoOscuro.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color:white;
+  font-weight: bold;
+}
+
+.nav-link {
+  font-size: larger;
+}

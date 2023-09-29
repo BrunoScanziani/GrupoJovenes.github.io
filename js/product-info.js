@@ -31,56 +31,51 @@ let container = document.getElementById("prod-container");
 
 //Función encargada de mostrar la información del producto.
 function ShowProductInfo(){
-    container.innerHTML = `
-        <br>
-        <h2>${Product.name}</h2>
-        <hr>
-        <h5>Precio</h5>
-        <p>${Product.currency} ${Product.cost}</p>
-        <h5>Descripción</h5>
-        <p>${Product.description}</p>
-        <h5>Categoría</h5>
-        <p>${Product.category}</p>
-        <h5>Cantidad de vendidos</h5>
-        <p>${Product.soldCount}</p>
-        <h5>Imágenes ilustrativas</h5>
-        
-        <br>
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width:50%">
-            <div class="carousel-indicators">
-                <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        container.innerHTML = `
+            <br>
+            <h2>${Product.name}</h2>
+            <hr>
+            <h5>Precio</h5>
+            <p>${Product.currency} ${Product.cost}</p>
+            <h5>Descripción</h5>
+            <p>${Product.description}</p>
+            <h5>Categoría</h5>
+            <p>${Product.category}</p>
+            <h5>Cantidad de vendidos</h5>
+            <p>${Product.soldCount}</p>
+            <h5>Imágenes ilustrativas</h5>
+            
+            <br>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width:50%">
+                 
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="${Product.images[0]}" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="${Product.images[1]}" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="${Product.images[2]}" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="${Product.images[3]}" class="d-block w-100">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="${Product.images[0]}" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="${Product.images[1]}" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="${Product.images[2]}" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="${Product.images[3]}" class="d-block w-100">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
-        <br> <br> <br> <br>
-        <h4>Comentarios</h4>
-    `
-    ShowRelated();
+    
+            <br> <br> <br> <br>
+            <h4>Comentarios</h4>
+        `
+        ShowRelated();
 }
 
 //Variable asociada al div de los comentarios.
@@ -110,6 +105,7 @@ function ShowComments(){
                 `<i class="fa fa-star rating-color"></i>` : `<i class="fa fa-star ratings-i"></i>`
         }
     });
+    actualTheme()
 }
 
 //Función encargada de agregar comentarios al array.
@@ -148,38 +144,28 @@ function dateConvert(dateString){
 //Función para mostrar los productos relacionados.
 var related = document.getElementById("related");
 function ShowRelated(){
-    related.innerHTML = 
-                        `
-                        <br> <hr> <br>
-                            <h4>Productos relacionados</h4>
-                            <br>
-                            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="width:50%">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="${Product.relatedProducts[0].image}" class="d-block w-100" onclick="setProdID(${Product.relatedProducts[0].id})">
-                                        <div class="carousel-caption d-none d-md-block">
-                                            <h5><strong>${Product.relatedProducts[0].name}</strong></h5>
+        related.innerHTML = 
+                            `
+                            <br> <hr> <br>
+                                <h4>Productos relacionados</h4>
+                                <br>
+                                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="width:50%">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="${Product.relatedProducts[0].image}" class="d-block w-100" onclick="setProdID(${Product.relatedProducts[0].id})">
+                                            
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="${Product.relatedProducts[1].image}" class="d-block w-100" onclick="setProdID(${Product.relatedProducts[1].id})">
+                                            
                                         </div>
                                     </div>
-                                    <div class="carousel-item">
-                                        <img src="${Product.relatedProducts[1].image}" class="d-block w-100" onclick="setProdID(${Product.relatedProducts[1].id})">
-                                        <div class="carousel-caption d-none d-md-block">
-                                            <h5><strong>${Product.relatedProducts[1].name}</strong></h5>
-                                        </div>
-                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    </button>
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                        `
+                            `
 }

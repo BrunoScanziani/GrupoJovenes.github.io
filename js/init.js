@@ -79,6 +79,15 @@ if (!loggedin) {
 
             <!-- Redirige a la página de perfil -->
               <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+
+            <!-- Interruptor para Modo Día / Modo Noche -->
+              <div class="dropdown-divider"></div>
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="modeSwitch">
+                <label class="form-check-label" for="modeSwitch">Nightmode</label>
+              </div>  
+
             <div class="dropdown-divider"></div>
 
             <!-- Agregamos un manejador de eventos al enlace de cierre de sesión -->
@@ -97,4 +106,118 @@ if (!loggedin) {
         // Redirige al usuario a la página de inicio de sesión
         window.location = "login.html";
     });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    if (!localStorage.getItem("nightmode")){
+      localStorage.setItem("nightmode",false)
+    }else
+  
+      if (localStorage.getItem("nightmode") == "true"){
+        document.getElementById("modeSwitch").setAttribute("checked",true)
+      }
+  
+    actualTheme()
+  }, 100);
+  
+})
+
+function actualTheme(){
+
+  //Arreglo con todos los elementos dentro del main, + el body.
+  var divs = document.querySelector("main").querySelectorAll("*");
+  //Div con la imagen de fondo
+  var img = document.getElementById("background-img");
+  //Div con la otra mitad de la pagina
+  var img2 = document.getElementById("background-img2");
+  //aaa
+  var listas = document.querySelectorAll("list-group-item");
+
+  var nightmode = localStorage.getItem("nightmode");
+  
+  if (nightmode == "true"){
+    console.log("pongo oscuro")
+
+    //Agrego las clases de modo oscuro a los divs
+    divs.forEach(element => {
+      if (element.classList.contains("bg-light")) {
+          element.classList.remove("bg-light");
+      }
+      element.classList.add("bg-dark");
+      element.style.color = "lightgray";
+    })
+
+    listas.forEach(element => {
+      if (element.classList.contains("bg-light")) {
+          element.classList.remove("bg-light");
+      }
+      element.classList.add("bg-dark");
+      element.style.color = "lightgray";
+    })
+      
+    document.body.classList.add("bg-dark");
+    if (document.body.classList.contains("bg-light")) {
+      document.body.classList.remove("bg-light");
+    }
+    
+    //Cambio la imagen de fondo
+    if (img != null){
+      img.classList.remove("jumbotron");
+      img.classList.add("jumbotron2");
+      img2.classList.remove(...img2.classList);
+      img2.style.color = "black";
+    }
+
+  }else{
+    console.log("despongo oscuro")
+
+    //Agrego las clases de modo light y saco las de modo night
+    divs.forEach(element => {
+      if (element.classList.contains("bg-dark")) {
+          element.classList.remove("bg-dark");
+      }
+      element.classList.add("bg-light");
+      element.style.color = "black";
+    })
+    
+    listas.forEach(element => {
+      if (element.classList.contains("bg-dark")) {
+          element.classList.remove("bg-dark");
+      }
+      element.classList.add("bg-light");
+      element.style.color = "lightgray";
+    })
+
+    document.body.classList.add("bg-light");
+      if (document.body.classList.contains("bg-dark")) {
+        document.body.classList.remove("bg-dark");
+    }
+
+    //Cambio la imagen de fondo
+    if (img != null){
+      img.classList.remove("jumbotron2");
+      img.classList.add("jumbotron");
+      img2.classList.add("album", "py-5" ,"bg-light");
+    }
+  }
+}
+
+var modeSwitch = document.getElementById("modeSwitch");
+
+modeSwitch.addEventListener("click", () => {
+  switchTheme()
+  actualTheme()
+})
+
+function switchTheme(){
+  var nightmode = localStorage.getItem("nightmode");
+
+  if (nightmode == "false"){
+    console.log("oscuro")
+    localStorage.setItem("nightmode","true")
+  }else{
+    console.log("noscuro")
+    localStorage.setItem("nightmode","false")
+  }
 }
