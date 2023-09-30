@@ -46,7 +46,7 @@ function ShowProductInfo(){
             <h5>Imágenes ilustrativas</h5>
             
             <br>
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width:50%">
+            <div id="carouselImg" class="carousel slide" data-bs-ride="carousel" style="width:50%">
                  
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -62,11 +62,11 @@ function ShowProductInfo(){
                         <img src="${Product.images[3]}" class="d-block w-100">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselImg" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselImg" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -149,7 +149,7 @@ function ShowRelated(){
                             <br> <hr> <br>
                                 <h4>Productos relacionados</h4>
                                 <br>
-                                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="width:50%">
+                                <div id="carouselRelated" class="carousel slide" data-bs-ride="carousel" style="width:50%">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
                                             <img src="${Product.relatedProducts[0].image}" class="d-block w-100" onclick="setProdID(${Product.relatedProducts[0].id})">
@@ -160,10 +160,10 @@ function ShowRelated(){
                                             
                                         </div>
                                     </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <button class="carousel-control-prev" data-bs-target="#carouselRelated" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <button class="carousel-control-next" data-bs-target="#carouselRelated" data-bs-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     </button>
                                 </div>
