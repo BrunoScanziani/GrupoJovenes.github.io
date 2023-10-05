@@ -32,9 +32,16 @@ let container = document.getElementById("prod-container");
 //Función encargada de mostrar la información del producto.
 function ShowProductInfo(){
         container.innerHTML = `
-            <br>
-            <h2>${Product.name}</h2>
-            <hr>
+            <br> 
+            <br> 
+            <div class="row">
+            <div class="col-md-6">
+                <h2>${Product.name}</h2>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <!-- Agrega el botón de Comprar con el atributo href -->
+                <button class="btn btn-primary btn-comprar" onclick="window.location.href='cart.html'">Comprar</button>
+            </div>
             <h5>Precio</h5>
             <p>${Product.currency} ${Product.cost}</p>
             <h5>Descripción</h5>
