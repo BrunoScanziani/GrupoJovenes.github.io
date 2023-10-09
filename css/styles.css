@@ -30,7 +30,7 @@ nav a {
 
 .jumbotron {
   height: 50vh;
-  padding: 5em inherit;
+  padding: 5em;
   margin-bottom: 0;
   background-color: #53C0FB;
   background: url('../img/cover_back.png');
@@ -278,3 +278,56 @@ a.custom-card:hover {
   vertical-align: middle; /* Alineación vertical al centro */
 }
 
+
+
+
+/* Estilos para pantallas pequeñas (menos de 768px de ancho) */
+@media (max-width: 768px) {
+  .jumbotron {
+    background-size: 132%; /*para la imagen*/
+  }
+  .jumbotron2{
+    background-size: 132%; /*para la imagen*/
+  }
+}
+
+
+  /* Modifica el tamaño de la fuente del título del jumbotron */
+  .jumbotron h1 {
+    font-size: 28px;
+  }
+
+  /* Modifica el tamaño de la fuente del texto del jumbotron */
+  .jumbotron p {
+    font-size: 16px;
+  }
+
+  /* Modifica el tamaño de la fuente del botón del jumbotron */
+  .jumbotron a.btn {
+    font-size: 14px;
+  }
+
+  /* Alinea el botón del jumbotron al centro */
+  .jumbotron .btn {
+    text-align: center;
+  }
+
+  /* Modifica el tamaño de la fuente de los títulos de categoría */
+  .custom-card h3 {
+    font-size: 20px;
+  }
+
+  /* Modifica el tamaño de la fuente del texto de la tarjeta de categoría */
+  .custom-card p {
+    font-size: 14px;
+  }
+
+  /* Modifica el tamaño de la fuente del botón "Y mucho más!" */
+  .btn-lg.btn-block {
+    font-size: 16px;
+  }
+
+/* Estilos para pantallas medianas y grandes (768px o más de ancho) */
+@media (min-width: 768px) {
+  /* Puedes agregar estilos específicos para pantallas más grandes aquí */
+}
