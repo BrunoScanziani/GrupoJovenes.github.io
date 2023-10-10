@@ -10,16 +10,16 @@ let Product = null;
 let Comments = null;
 
 //Muestra la info del producto al cargar la pagina
-document.addEventListener("DOMContentLoaded",function(e){
-    getJSONData(Prod_URL).then(function(resultObj){
-        if (resultObj.status == "ok"){
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(Prod_URL).then(function (resultObj) {
+        if (resultObj.status == "ok") {
             Product = resultObj.data;
             ShowProductInfo()
         }
     })
 
-    getJSONData(COMMENTS).then(function(resultObj){
-        if (resultObj.status == "ok"){
+    getJSONData(COMMENTS).then(function (resultObj) {
+        if (resultObj.status == "ok") {
             Comments = resultObj.data;
             ShowComments()
         }
@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded",function(e){
 let container = document.getElementById("prod-container");
 
 //Función encargada de mostrar la información del producto.
-function ShowProductInfo(){
-        container.innerHTML = `
+function ShowProductInfo() {
+    container.innerHTML = `
             <br> 
             <br> 
             <div class="row">
@@ -83,14 +83,14 @@ function ShowProductInfo(){
             <br> <br> <br> <br>
             <h4>Comentarios</h4>
         `
-        ShowRelated();
+    ShowRelated();
 }
 
 //Variable asociada al div de los comentarios.
 let comentarios = document.getElementById("comments");
 
 //Funcion encargada de mostrar y actualizar la lista de comentarios.
-function ShowComments(){
+function ShowComments() {
     comentarios.innerHTML = ``;
     Comments.forEach(element => {
         comentarios.innerHTML += `
@@ -107,9 +107,9 @@ function ShowComments(){
                 </div>
             </div>
         `
-    let rating = document.getElementById(element.dateTime);
-        for(let i=1;i<=5;i++){
-            rating.innerHTML += i <= element.score ? 
+        let rating = document.getElementById(element.dateTime);
+        for (let i = 1; i <= 5; i++) {
+            rating.innerHTML += i <= element.score ?
                 `<i class="fa fa-star rating-color"></i>` : `<i class="fa fa-star ratings-i"></i>`
         }
     });
@@ -117,27 +117,27 @@ function ShowComments(){
 }
 
 //Función encargada de agregar comentarios al array.
-function AddComment(e){
+function AddComment(e) {
     e.preventDefault();
-    if (document.getElementById("text-comment").value && (document.getElementById("comment-rate").value) !== "elige"){
-    let Comentario = {
-        product: Product.id,
-        score: Number(document.getElementById("comment-rate").value),
-        description: document.getElementById("text-comment").value,
-        user: localStorage.getItem("email"),
-        dateTime: dateConvert(new Date)
-    }
-    Comments.push(Comentario);
-    ShowComments();
+    if (document.getElementById("text-comment").value && (document.getElementById("comment-rate").value) !== "elige") {
+        let Comentario = {
+            product: Product.id,
+            score: Number(document.getElementById("comment-rate").value),
+            description: document.getElementById("text-comment").value,
+            user: localStorage.getItem("email"),
+            dateTime: dateConvert(new Date)
+        }
+        Comments.push(Comentario);
+        ShowComments();
     }
 }
 
 //Evento para agregar comentarios al clickear el botón.
 let submit = document.getElementById("btn");
-submit.addEventListener("click",AddComment)
+submit.addEventListener("click", AddComment)
 
 //Función para convertir la fecha de ISOString al formato utilizado en el array.
-function dateConvert(dateString){
+function dateConvert(dateString) {
     var isoDate = new Date(dateString);
     var year = isoDate.getUTCFullYear();
     var month = String(isoDate.getUTCMonth() + 1).padStart(2, "0"); // Sumar 1 al mes ya que los meses en JavaScript se indexan desde 0
@@ -151,9 +151,9 @@ function dateConvert(dateString){
 
 //Función para mostrar los productos relacionados.
 var related = document.getElementById("related");
-function ShowRelated(){
-        related.innerHTML = 
-                            `
+function ShowRelated() {
+    related.innerHTML =
+        `
                             <br> <hr> <br>
                                 <h4>Productos relacionados</h4>
                                 <br>
@@ -177,7 +177,7 @@ function ShowRelated(){
                                 </div>
                             `
 }
- 
+
 function agregarAlCarrito() {
 
     // Actualiza el texto en el desplegable del carrito
