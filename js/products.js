@@ -9,7 +9,6 @@ let Category = null;
 let minCount = undefined;
 let maxCount = undefined;
 
-
 function showProductsList(){
     // Array con los productos.
     let prod = Category.products;

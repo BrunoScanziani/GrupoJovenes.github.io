@@ -30,7 +30,7 @@ nav a {
 
 .jumbotron {
   height: 50vh;
-  padding: 5em inherit;
+  padding: 5em;
   margin-bottom: 0;
   background-color: #53C0FB;
   background: url('../img/cover_back.png');
@@ -224,3 +224,122 @@ a.custom-card:hover {
   margin-right: 10px; /* Espacio entre la imagen y el correo electrónico */
 }
 
+.jumbotron2 {
+  height: 50vh;
+  padding: 5em inherit;
+  margin-bottom: 0;
+  background: url('../img/fondoModoOscuro.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color:white;
+  font-weight: bold;
+}
+
+.nav-link {
+  font-size: larger;
+}
+
+/* Estilo para el desplegable */
+.dropdown-menu {
+  width: 185px; /* Ancho fijo del desplegable */
+  padding: 10px; /* Espacio interno para el contenido */
+  text-align: center; /* Alineación horizontal al centro */
+}
+
+/* Estilo para los elementos dentro del desplegable */
+.dropdown-item {
+  padding: 8px 12px; /* Espaciado interno de los elementos */
+  color: #333; /* Color del texto */
+  text-decoration: none; /* Elimina la subrayado de los enlaces */
+  display: block; /* Hacer que los elementos sean bloques para ocupar todo el ancho */
+  transition: background-color 0.3s; /* Transición de color de fondo */
+  text-align: center; /* Alineación horizontal al centro */
+  line-height: 1.5; /* Altura de línea para centrar verticalmente */
+}
+
+
+/* Estilo para el interruptor de modo día/noche */
+.form-check-label {
+  display: flex;
+  align-items: center; /* Alinear verticalmente el contenido del interruptor */
+ padding: center;
+}
+
+/* Estilo para el interruptor (input) */
+.form-check-label input {
+  margin-right: 1000px; /* Espacio entre el interruptor y la etiqueta */
+}
+/* Estilo para los iconos dentro de los botones del desplegable */
+.dropdown-item img {
+  width: 30px; /* Ajusta el ancho del icono */
+  height: 30px; /* Ajusta la altura del icono */
+  margin-right: 3px; /* Espacio entre el icono y el texto del botón */
+  vertical-align: middle; /* Alineación vertical al centro */
+}
+
+.titulo {
+  font-family: 'Verdana', serif;
+  color: black;
+}
+
+.carrito {
+    width: 100%;
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    
+}
+
+/* Estilos para pantallas pequeñas (menos de 768px de ancho) */
+@media (max-width: 768px) {
+  .jumbotron {
+    background-size: 132%; /*para la imagen*/
+  }
+  .jumbotron2{
+    background-size: 132%; /*para la imagen*/
+  }
+}
+
+
+  /* Modifica el tamaño de la fuente del título del jumbotron */
+  .jumbotron h1 {
+    font-size: 28px;
+  }
+
+  /* Modifica el tamaño de la fuente del texto del jumbotron */
+  .jumbotron p {
+    font-size: 16px;
+  }
+
+  /* Modifica el tamaño de la fuente del botón del jumbotron */
+  .jumbotron a.btn {
+    font-size: 14px;
+  }
+
+  /* Alinea el botón del jumbotron al centro */
+  .jumbotron .btn {
+    text-align: center;
+  }
+
+  /* Modifica el tamaño de la fuente de los títulos de categoría */
+  .custom-card h3 {
+    font-size: 20px;
+  }
+
+  /* Modifica el tamaño de la fuente del texto de la tarjeta de categoría */
+  .custom-card p {
+    font-size: 14px;
+  }
+
+  /* Modifica el tamaño de la fuente del botón "Y mucho más!" */
+  .btn-lg.btn-block {
+    font-size: 16px;
+  }
+
+/* Estilos para pantallas medianas y grandes (768px o más de ancho) */
+@media (min-width: 768px) {
+  /* Puedes agregar estilos específicos para pantallas más grandes aquí */
+}
