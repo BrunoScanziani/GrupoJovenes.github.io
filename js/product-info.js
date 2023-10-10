@@ -32,9 +32,17 @@ let container = document.getElementById("prod-container");
 //Función encargada de mostrar la información del producto.
 function ShowProductInfo(){
         container.innerHTML = `
-            <br>
-            <h2>${Product.name}</h2>
-            <hr>
+            <br> 
+            <br> 
+            <div class="row">
+            <div class="col-md-6">
+                <h2>${Product.name}</h2>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <!-- Agrega el botón de Comprar con el atributo href -->
+                <button class="btn btn-primary btn-comprar" onclick="agregarAlCarrito()">Comprar</button>
+            </div>
+            <hr style="border: 1px solid #000; margin: 20px 0;">
             <h5>Precio</h5>
             <p>${Product.currency} ${Product.cost}</p>
             <h5>Descripción</h5>
@@ -168,4 +176,17 @@ function ShowRelated(){
                                     </button>
                                 </div>
                             `
+}
+let cantidadEnCarrito = 0; 
+function agregarAlCarrito() {
+
+    cantidadEnCarrito++;
+    // Actualiza el texto en el desplegable del carrito
+    actualizarCantidadEnCarrito();
+    alert('Producto agregado al carrito');
+}
+function actualizarCantidadEnCarrito() {
+    // Actualiza el texto en el desplegable del carrito en init.js
+    const carritoNavItem = document.getElementById("carrito-nav-item");
+    carritoNavItem.textContent = cantidadEnCarrito; // Actualiza el contenido del elemento
 }
