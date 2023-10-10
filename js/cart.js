@@ -8,6 +8,5 @@ document.addEventListener("DOMContentLoaded",() => {
            a = resultObj.data;
            console.log(a)
         }
-    actualizarProdCarrito();
     })
 })
