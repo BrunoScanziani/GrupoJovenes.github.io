@@ -177,16 +177,12 @@ function ShowRelated(){
                                 </div>
                             `
 }
-let cantidadEnCarrito = 0; 
+ 
 function agregarAlCarrito() {
 
-    cantidadEnCarrito++;
     // Actualiza el texto en el desplegable del carrito
-    actualizarCantidadEnCarrito();
+    actualizarProdCarrito();
+
     alert('Producto agregado al carrito');
 }
-function actualizarCantidadEnCarrito() {
-    // Actualiza el texto en el desplegable del carrito en init.js
-    const carritoNavItem = document.getElementById("carrito-nav-item");
-    carritoNavItem.textContent = cantidadEnCarrito; // Actualiza el contenido del elemento
-}
+

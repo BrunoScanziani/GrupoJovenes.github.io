@@ -226,3 +226,49 @@ function switchTheme(){
     localStorage.setItem("nightmode","false")
   }
 }
+
+// ************************
+//     SOBRE EL CARRITO 
+// ************************
+
+let arrayCarrito = []
+
+const carritoNavItem = document.getElementById("carrito-nav-item");
+
+let menuUsuario = document.getElementById("userDropdown")
+
+// Hace que el indicador de productos se actualice cada vez que el usuario quiera ver
+menuUsuario.addEventListener("click", () => (
+  actualizarCantidadEnCarrito()
+
+))
+
+function actualizarProdCarrito() {
+
+  if (!localStorage.getItem("prodCarrito")) {
+    arrayCarrito.push(Product.id)
+    localStorage.setItem("prodCarrito", JSON.stringify(arrayCarrito));
+  
+  } else {
+    arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"));
+    
+    if (!arrayCarrito.includes(Product.id)) {
+      arrayCarrito.push(Product.id);
+      localStorage.setItem("prodCarrito", JSON.stringify(arrayCarrito));
+    
+    }
+  }
+
+  actualizarCantidadEnCarrito()
+}
+
+function actualizarCantidadEnCarrito() {
+  arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"))
+  
+  let cantidadEnCarrito = 0
+  
+  arrayCarrito.forEach(element => {
+    cantidadEnCarrito++
+  });
+  carritoNavItem.textContent = cantidadEnCarrito;
+}
