@@ -278,8 +278,20 @@ a.custom-card:hover {
   vertical-align: middle; /* Alineación vertical al centro */
 }
 
+.titulo {
+  font-family: 'Verdana', serif;
+  color: black;
+}
 
-
+.carrito {
+    width: 100%;
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    
+}
 
 /* Estilos para pantallas pequeñas (menos de 768px de ancho) */
 @media (max-width: 768px) {
