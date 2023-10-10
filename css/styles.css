@@ -277,3 +277,18 @@ a.custom-card:hover {
   margin-right: 3px; /* Espacio entre el icono y el texto del botón */
   vertical-align: middle; /* Alineación vertical al centro */
 }
+
+.titulo {
+  font-family: 'Verdana', serif;
+  color: black;
+}
+
+.carrito {
+    width: 100%;
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    
+}
