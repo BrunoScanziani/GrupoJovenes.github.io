@@ -57,49 +57,50 @@ if (!loggedin) {
     let barra = document.getElementById("barra");
     let userNavItem = document.createElement("li");
 
-    // Agregamos la clase 'dropdown' al elemento <li>
-    userNavItem.className = "nav-item dropdown";
-    userNavItem.innerHTML =
-    `
-        <a class="nav-link dropdown-toggle text-center" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  // Agregamos la clase 'dropdown' al elemento <li>
+userNavItem.className = "nav-item dropdown";
+userNavItem.innerHTML =
+`
+    <a class="nav-link dropdown-toggle text-center" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-          <!-- Imagen de perfil -->
-            <img src="img/nano.jpg" class="profile-image" alt="Imagen de perfil">
+      <!-- Imagen de perfil -->
+        <img src="img/nano.jpg" class="profile-image" alt="Imagen de perfil">
 
-              <!-- El nombre de usuario se mostrará aquí -->
-                ${localStorage.getItem("email")}
+          <!-- El nombre de usuario se mostrará aquí -->
+            ${localStorage.getItem("email")}
 
-        </a>
+    </a>
 
-        <!-- Agregamos la clase 'dropdown-menu-end' para centrar a la derecha -->
-        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"> 
+    <!-- Agregamos la clase 'dropdown-menu-end' para centrar a la derecha -->
+    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"> 
 
-        <!-- Redirige a la página de carrito -->
-        <a class="dropdown-item" href="cart.html">
-          <img src="img/anadir-al-carrito.png"> Mi carrito
-        </a>
-        
-        <!-- Redirige a la página de perfil -->
-        <a class="dropdown-item" href="my-profile.html">
-          <img src="img/avatar-de-perfil.png"> Mi perfil
-        </a>
-        
-        <!-- Interruptor para Modo Día / Modo Noche -->
-        <div class="dropdown-divider"></div>
-        
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="modeSwitch">
-          <label class="form-check-label" for="modeSwitch">Modo Nocturno</label>
-          </label>
-        </div>
-        <div class="dropdown-divider"></div>
-        <!-- Agregamos un manejador de eventos al enlace de cierre de sesión -->
-        <a class="dropdown-item" href="#" id="cerrarSesion">
-          <img src="img/salida.png"> Cerrar sesión
-        </a>
-        
-        </div>
+    <!-- Redirige a la página de carrito -->
+    <a class="dropdown-item" href="cart.html">
+    <span id="carrito-nav-item" class="badge bg-primary">0</span> <img src="img/anadir-al-carrito.png"> Mi carrito
+    </a>
+    
+    <!-- Redirige a la página de perfil -->
+    <a class="dropdown-item" href="my-profile.html">
+      <img src="img/avatar-de-perfil.png"> Mi perfil
+    </a>
+    
+    <!-- Interruptor para Modo Día / Modo Noche -->
+    <div class="dropdown-divider"></div>
+    
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="modeSwitch">
+      <label class="form-check-label" for="modeSwitch">Modo Nocturno</label>
+      </label>
+    </div>
+    <div class="dropdown-divider"></div>
+    <!-- Agregamos un manejador de eventos al enlace de cierre de sesión -->
+    <a class="dropdown-item" href="#" id="cerrarSesion">
+      <img src="img/salida.png"> Cerrar sesión
+    </a>
+    
+    </div>
 `;
+
     // Agregamos el elemento <li> con el menú desplegable al final de la barra
     barra.innerHTML += userNavItem.outerHTML;
 
