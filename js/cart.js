@@ -4,6 +4,15 @@ const id = 25801;
 let container = document.getElementById("productsCarritoContainer");
 const cartScript = document.getElementById("subtotal")
 
+
+function modifSubtotal(id, price, moneda) {
+    let cantidadInput = document.getElementById("cantidad" + id);
+    let subtotalSpan = document.getElementById("subtotal" + id);
+
+    subtotalSpan.innerHTML = moneda + " " + cantidadInput.value * price;
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
 
@@ -45,18 +54,20 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p>${data.articles[0].currency} ${data.articles[0].unitCost}</p>
                     </div>
                     <div class="col">
-                        <input type="number" class="counter_cart" id="cantidad" value="1" min="1">
+                        <input type="number" class="counter_cart" id="cantidad${data.articles[0].id}" value="1" min="1" 
+                            onchange="modifSubtotal(${data.articles[0].id}, ${data.articles[0].unitCost}, '${data.articles[0].currency}')" 
+                            oninput="modifSubtotal(${data.articles[0].id}, ${data.articles[0].unitCost}, '${data.articles[0].currency}')">
                     </div>
                     <div class="col">
-                        <p id="subtotal"></p> 
+                        <p id="subtotal${data.articles[0].id}"></p> 
                     </div>    
                 </div>
                 <hr id="line">
                 `
-            
+
             let precio1 = data.articles[0].unitCost;
-            let cantidadInput1 = document.getElementById("cantidad");
-            let subtotalSpan1 = document.getElementById("subtotal");
+            let cantidadInput1 = document.getElementById("cantidad" + data.articles[0].id);
+            let subtotalSpan1 = document.getElementById("subtotal" + data.articles[0].id);
             let currency1 = data.articles[0].currency
 
             subtotalSpan1.innerHTML = currency1 + " " + cantidadInput1.value * precio1;
@@ -88,7 +99,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <p>${dataCart.currency} ${dataCart.cost}</p>
                                 </div>
                                 <div class="col">
-                                    <input type="number" class="counter_cart" id="cantidad${dataCart.id}" value="1" min="1">
+                                    <input type="number" class="counter_cart" id="cantidad${dataCart.id}" value="1" min="1" 
+                                        onchange="modifSubtotal(${dataCart.id}, ${dataCart.cost}, '${dataCart.currency}')" 
+                                        oninput="modifSubtotal(${dataCart.id}, ${dataCart.cost}, '${dataCart.currency}')">
                                 </div>
                                 <div class="col">
                                     <p id="subtotal${dataCart.id}"></p> 
@@ -100,12 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         let cantidadInput = document.getElementById("cantidad" + dataCart.id);
                         let subtotalSpan = document.getElementById("subtotal" + dataCart.id);
                         let currency = dataCart.currency
+
                         subtotalSpan.innerHTML = currency + " " + cantidadInput.value * precio;
 
                         cantidadInput.addEventListener("input", () => {
-                            subtotalSpan.innerHTML = " ";
-                            subtotalSpan.innerHTML = currency + " " + cantidadInput.value * precio;
-                        });
+                            subtotalSpan1.innerHTML = " ";
+                            subtotalSpan1.innerHTML = currency + " " + cantidadInput.value * precio;
+                        })
                     };
                 });
             }
