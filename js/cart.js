@@ -12,16 +12,16 @@ document.addEventListener("DOMContentLoaded",() => {
                 <div class="col">
                 
                 </div>
-                <div class="col">
+                <div class="col font-weight-bold">
                 Nombre
                 </div>
-                <div class="col">
+                <div class="col font-weight-bold">
                 Costo
                 </div>
-                <div class="col">
+                <div class="col font-weight-bold">
                 Cantidad
                 </div>
-                <div class="col">
+                <div class="col font-weight-bold">
                 Subtotal
                 </div>    
         </div>
