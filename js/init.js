@@ -231,8 +231,9 @@ function switchTheme() {
 //     SOBRE EL CARRITO 
 // ************************
 
+//Array donde se guardan ids de producto
 let arrayCarrito = []
-
+//Indicador de productos en carrito en el menú
 const carritoNavItem = document.getElementById("carrito-nav-item");
 
 let menuUsuario = document.getElementById("userDropdown")
@@ -245,11 +246,13 @@ menuUsuario.addEventListener("click", () => (
 
 function actualizarProdCarrito() {
 
+  //Si no hay productos en el carrito crea un item en el localStorage y agrega este producto
   if (!localStorage.getItem("prodCarrito")) {
     arrayCarrito.push(Product.id)
     localStorage.setItem("prodCarrito", JSON.stringify(arrayCarrito));
 
   } else {
+  //Si hay productos en el carrito chequea si el id de este producto está guardado y lo agrega si no
     arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"));
 
     if (!arrayCarrito.includes(Product.id)) {
@@ -263,12 +266,15 @@ function actualizarProdCarrito() {
 }
 
 function actualizarCantidadEnCarrito() {
-  arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"))
+  if (localStorage.getItem("prodCarrito")) {
+    arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"))
 
-  let cantidadEnCarrito = 0
+    let cantidadEnCarrito = 0
 
-  arrayCarrito.forEach(element => {
-    cantidadEnCarrito++
-  });
-  carritoNavItem.textContent = cantidadEnCarrito;
+    arrayCarrito.forEach(element => {
+      cantidadEnCarrito++
+    });
+    carritoNavItem.textContent = cantidadEnCarrito;
+  }
 }
+
