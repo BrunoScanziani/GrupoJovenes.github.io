@@ -39,8 +39,7 @@ function ShowProductInfo() {
                 <h2>${Product.name}</h2>
             </div>
             <div class="col-md-6 text-md-end">
-                <!-- Agrega el botón de Comprar con el atributo href -->
-                <button class="btn btn-primary btn-comprar" onclick="agregarAlCarrito()">Comprar</button>
+                <button class="btn btn-primary btn-comprar" onclick="actualizarProdCarrito()">Comprar</button>
             </div>
             <hr style="border: 1px solid #000; margin: 20px 0;">
             <h5>Precio</h5>
@@ -177,12 +176,3 @@ function ShowRelated() {
                                 </div>
                             `
 }
-
-function agregarAlCarrito() {
-
-    // Actualiza el texto en el desplegable del carrito
-    actualizarProdCarrito();
-
-    alert('Producto agregado al carrito');
-}
-

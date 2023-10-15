@@ -238,12 +238,6 @@ const carritoNavItem = document.getElementById("carrito-nav-item");
 
 let menuUsuario = document.getElementById("userDropdown")
 
-// Hace que el indicador de productos se actualice cada vez que el usuario quiera ver
-menuUsuario.addEventListener("click", () => (
-  actualizarCantidadEnCarrito()
-
-))
-
 function actualizarProdCarrito() {
 
   //Si no hay productos en el carrito crea un item en el localStorage y agrega este producto
@@ -262,8 +256,16 @@ function actualizarProdCarrito() {
     }
   }
 
+  alert('Producto agregado al carrito');
+
   actualizarCantidadEnCarrito()
 }
+
+// Hace que el indicador de productos se actualice cada vez que el usuario quiera ver
+menuUsuario.addEventListener("click", () => (
+  actualizarCantidadEnCarrito()
+
+))
 
 function actualizarCantidadEnCarrito() {
   if (localStorage.getItem("prodCarrito")) {
@@ -277,4 +279,3 @@ function actualizarCantidadEnCarrito() {
     carritoNavItem.textContent = cantidadEnCarrito;
   }
 }
-
