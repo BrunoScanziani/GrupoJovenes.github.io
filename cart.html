@@ -61,14 +61,17 @@
                   <div class="col">
                       <h6>Subtotal</h6>
                   </div>
+                  <div class="col">
+                    <!-- Vacío -->
+                    </div>
             </div>
             <hr style="border: 2px solid black; margin: 12px 0px; color: black;">
           </div>
         </div>
-        <hr style="border: 2px solid gray; margin: 12px 0px; color: black;">
+        <hr style="border: 1px solid gray; margin: 12px 0px; color: black;">
         <br>
         
-        <div>
+        <form>
           <h4>Tipo de Envío:</h4>
           <br>
           <label>
@@ -82,44 +85,112 @@
           <label>
             <input type="radio" name="opcion" value="opcion3"> Standard 12 a 15 días (5%)
           </label>
-        </div>
 
-        <br>
+          <br><br>
 
-        <div class="col-md-4">
-          <select class="form-select col-md-5" id="envio">
-            <option value="0" hidden>Método de pago</option>
-            <option value="5">MercadoPago</option>
-            <option value="10">Débito online</option>
-            <option value="15">Crédito online</option>
-          </select>
-        </div>
-
-        <br>
-
-        <form>
           <h4>Dirección de Envío</h4>
           <br>
           <div class="row gy-3">
             <div class="col-lg-3">
               <label for="calle">Calle</label>
-              <input type="text" class="form-control" id="calle" name="calle">
+              <input type="text" class="form-control" id="calle" name="calle" required>
             </div>
             <div class="col-lg-2">
               <label for="numero">N°</label>
-              <input type="numero" class="form-control" id="numero" name="numero">
+              <input type="numero" class="form-control" id="numero" name="numero" required>
             </div>
           </div>
 
           <div class="row">
             <div class="col-lg-3">
               <label for="esquina">Esquina</label>
-              <input type="esquina" class="form-control" id="esquina" name="esquina">
+              <input type="esquina" class="form-control" id="esquina" name="esquina" required>
             </div>
           </div>
 
           <br>
-          <button type="submit" class="btn btn-success">Enviar</button>
+          <hr style="border: 1px solid gray; margin: 12px 0px; color: black;">
+          <br>
+
+          <h4>Costos</h4><br>
+          <div class="list-group">
+            <div class="list-group-item">
+              <div class="d-flex w-100 justify-content-between">
+                <h5>Subtotal</h5>
+                <p class="text-muted">USD 12313</p>
+              </div>
+              <p class="text-muted">Costo unitario del producto por cantidad</p>
+            </div>
+            <div class="list-group-item">
+              <div class="d-flex w-100 justify-content-between">
+                <h5>Costo del envío</h5>
+                <p class="text-muted" id="costoenvio">USD 12313</p>
+              </div>
+              <p class="text-muted">Según el tipo de envío</p>
+            </div>
+            <div class="list-group-item">
+              <div class="d-flex w-100 justify-content-between">
+                <h5>Total($)</h5>
+                <strong id="costototal">USD 12313</strong>
+              </div>
+            </div>
+          </div>
+
+          <br>
+          <hr style="border: 1px solid gray; margin: 12px 0px; color: black;">
+          <br>
+
+          <h4>Forma de pago</h4><br>
+          <div class="row text-">
+            <div class="col-lg-2"><p id="tipoenvio">No ha seleccionado</p></div>
+            <a class="col-lg-2" href="" data-bs-toggle="modal" data-bs-target="#modal">Seleccionar</a>
+          </div>
+
+          <br><br>
+          <button type="submit" class="col-12 btn btn-primary">Finalizar compra</button>
+
+          <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5">Forma de pago</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <input type="radio" name="credito" id="credito" required> <label for="credito">Tarjeta de crédito</label>
+                  <hr style="border: 1px solid gray;">
+                  <div class="row gy-3">
+                    <div class="col-lg-6">
+                      <label for="numcredito">Numero de tarjeta</label>
+                      <input type="text" class="form-control" id="numcredito" name="numcredito" required>
+                    </div>
+                    <div class="col-lg-4">
+                      <label for="codigoseg">Código de seg.</label>
+                      <input type="text" class="form-control" id="codigoseg" name="codigoseg" required>
+                    </div>
+                    <div class="col-lg-6">
+                      <label for="vencimiento">Vencimiento (MM/AA)</label>
+                      <input type="text" class="form-control" id="vencimiento" name="vencimiento" required>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <input type="radio" name="credito" id="transferencia" required> <label for="transferencia">Transferencia bancaria</label>
+                  <hr style="border: 1px solid gray;">
+                  <div class="col-6">
+                    <label for="numcuenta">Número de cuenta</label>
+                    <input type="text" class="form-control" id="numcuenta" name="numcuenta" required>
+                  </div>
+
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </form>
       </div>
     </div>

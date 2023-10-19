@@ -84,6 +84,9 @@ function mostrarArt(element){
                     </div>
                     <div class="col">
                         <strong id="subtotal${dataCart.id}"></strong> 
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-danger"><i class='far fa-trash-alt'></i></button>
                     </div>    
                 </div>
                 <hr style="border: 1px solid lightgray; margin: 12px 0px; color: black;" class="bg-light">
