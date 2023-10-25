@@ -181,7 +181,7 @@ function ShowRelated() {
 
 function agregarAlCarrito() {
     // Actualiza el texto en el desplegable del carrito
-    actualizarProdCarrito();
+    actualizarProdCarrito(); //init.js
 
     alert('Producto agregado al carrito');
 }

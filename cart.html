@@ -42,159 +42,161 @@
       <div class="col-md-8 order-md-1">
         <div>
           <h4>Artículos a comprar</h4>
-          <div class="list-group" id="productsCarritoContainer">
+          <div>
             <br>
             <div>
               <div class="d-flex flex-row">
-                  <div class="col">
+                <div class="col">
                   <!-- Vacío -->
-                  </div>
-                  <div class="col">
-                      <h6>Nombre</h6>
-                  </div>
-                  <div class="col">
-                      <h6>Costo</h6>
-                  </div>
-                  <div class="col">
-                      <h6>Cantidad</h6>
-                  </div>
-                  <div class="col">
-                      <h6>Subtotal</h6>
-                  </div>
-                  <div class="col">
-                    <!-- Vacío -->
-                    </div>
+                </div>
+                <div class="col">
+                  <h6>Nombre</h6>
+                </div>
+                <div class="col">
+                  <h6>Costo</h6>
+                </div>
+                <div class="col">
+                  <h6>Cantidad</h6>
+                </div>
+                <div class="col">
+                  <h6>Subtotal</h6>
+                </div>
+                <div class="col">
+                  <!-- Vacío -->
+                </div>
+              </div>
+              <hr style="border: 2px solid black; margin: 12px 0px; color: black;">
+              <div class="list-group" id="productsCarritoContainer">
+                <!-- carrito -->
+              </div>
             </div>
-            <hr style="border: 2px solid black; margin: 12px 0px; color: black;">
           </div>
-        </div>
-        <hr style="border: 1px solid gray; margin: 12px 0px; color: black;">
-        <br>
+          <hr style="border: 1px solid gray; margin: 12px 0px; color: black;">
+          <br>
         
-        <form>
-          <h4>Tipo de Envío:</h4>
-          <br>
-          <label>
-            <input type="radio" name="opcion" value="opcion1"> Premium 2 a 5 días (15%)
-          </label>
-          <br>
-          <label>
-            <input type="radio" name="opcion" value="opcion2"> Express 5 a 8 días (7%)
-          </label>
-          <br>
-          <label>
-            <input type="radio" name="opcion" value="opcion3"> Standard 12 a 15 días (5%)
-          </label>
+          <form>
+            <h4>Tipo de Envío:</h4>
+            <br>
+            <label>
+              <input type="radio" name="opcion" value="opcion1"> Premium 2 a 5 días (15%)
+            </label>
+            <br>
+            <label>
+              <input type="radio" name="opcion" value="opcion2"> Express 5 a 8 días (7%)
+            </label>
+            <br>
+            <label>
+              <input type="radio" name="opcion" value="opcion3"> Standard 12 a 15 días (5%)
+            </label>
 
-          <br><br>
+            <br><br>
 
-          <h4>Dirección de Envío</h4>
-          <br>
-          <div class="row gy-3">
-            <div class="col-lg-3">
-              <label for="calle">Calle</label>
-              <input type="text" class="form-control" id="calle" name="calle" required>
-            </div>
-            <div class="col-lg-2">
-              <label for="numero">N°</label>
-              <input type="numero" class="form-control" id="numero" name="numero" required>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-3">
-              <label for="esquina">Esquina</label>
-              <input type="esquina" class="form-control" id="esquina" name="esquina" required>
-            </div>
-          </div>
-
-          <br>
-          <hr style="border: 1px solid gray; margin: 12px 0px; color: black;">
-          <br>
-
-          <h4>Costos</h4><br>
-          <div class="list-group">
-            <div class="list-group-item">
-              <div class="d-flex w-100 justify-content-between">
-                <h5>Subtotal</h5>
-                <p class="text-muted">USD 12313</p>
+            <h4>Dirección de Envío</h4>
+            <br>
+            <div class="row gy-3">
+              <div class="col-lg-3">
+                <label for="calle">Calle</label>
+                <input type="text" class="form-control" id="calle" name="calle" required>
               </div>
-              <p class="text-muted">Costo unitario del producto por cantidad</p>
-            </div>
-            <div class="list-group-item">
-              <div class="d-flex w-100 justify-content-between">
-                <h5>Costo del envío</h5>
-                <p class="text-muted" id="costoenvio">USD 12313</p>
-              </div>
-              <p class="text-muted">Según el tipo de envío</p>
-            </div>
-            <div class="list-group-item">
-              <div class="d-flex w-100 justify-content-between">
-                <h5>Total($)</h5>
-                <strong id="costototal">USD 12313</strong>
+              <div class="col-lg-2">
+                <label for="numero">N°</label>
+                <input type="numero" class="form-control" id="numero" name="numero" required>
               </div>
             </div>
-          </div>
 
-          <br>
-          <hr style="border: 1px solid gray; margin: 12px 0px; color: black;">
-          <br>
+            <div class="row">
+              <div class="col-lg-3">
+                <label for="esquina">Esquina</label>
+                <input type="esquina" class="form-control" id="esquina" name="esquina" required>
+              </div>
+            </div>
 
-          <h4>Forma de pago</h4><br>
-          <div class="row text-">
-            <div class="col-lg-2"><p id="tipoenvio">No ha seleccionado</p></div>
-            <a class="col-lg-2" href="" data-bs-toggle="modal" data-bs-target="#modal">Seleccionar</a>
-          </div>
+            <br>
+            <hr style="border: 1px solid gray; margin: 12px 0px; color: black;">
+            <br>
 
-          <br><br>
-          <button type="submit" class="col-12 btn btn-primary">Finalizar compra</button>
-
-          <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5">Forma de pago</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h4>Costos</h4><br>
+            <div class="list-group">
+              <div class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5>Subtotal</h5>
+                  <p class="text-muted">USD 12313</p>
                 </div>
-                <div class="modal-body">
-                  <input type="radio" name="credito" id="credito" required> <label for="credito">Tarjeta de crédito</label>
-                  <hr style="border: 1px solid gray;">
-                  <div class="row gy-3">
-                    <div class="col-lg-6">
-                      <label for="numcredito">Numero de tarjeta</label>
-                      <input type="text" class="form-control" id="numcredito" name="numcredito" required>
-                    </div>
-                    <div class="col-lg-4">
-                      <label for="codigoseg">Código de seg.</label>
-                      <input type="text" class="form-control" id="codigoseg" name="codigoseg" required>
-                    </div>
-                    <div class="col-lg-6">
-                      <label for="vencimiento">Vencimiento (MM/AA)</label>
-                      <input type="text" class="form-control" id="vencimiento" name="vencimiento" required>
-                    </div>
+                <p class="text-muted">Costo unitario del producto por cantidad</p>
+              </div>
+              <div class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5>Costo del envío</h5>
+                  <p class="text-muted" id="costoenvio">USD 12313</p>
+                </div>
+                <p class="text-muted">Según el tipo de envío</p>
+              </div>
+              <div class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5>Total($)</h5>
+                  <strong id="costototal">USD 12313</strong>
+                </div>
+              </div>
+            </div>
+
+            <br>
+            <hr style="border: 1px solid gray; margin: 12px 0px; color: black;">
+            <br>
+
+            <h4>Forma de pago</h4><br>
+            <div class="row text-">
+              <div class="col-lg-2"><p id="tipoenvio">No ha seleccionado</p></div>
+              <a class="col-lg-2" href="" data-bs-toggle="modal" data-bs-target="#modal">Seleccionar</a>
+            </div>
+
+            <br><br>
+            <button type="submit" class="col-12 btn btn-primary">Finalizar compra</button>
+
+            <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5">Forma de pago</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
+                  <div class="modal-body">
+                    <input type="radio" name="credito" id="credito" required> <label for="credito">Tarjeta de crédito</label>
+                    <hr style="border: 1px solid gray;">
+                    <div class="row gy-3">
+                      <div class="col-lg-6">
+                        <label for="numcredito">Numero de tarjeta</label>
+                        <input type="text" class="form-control" id="numcredito" name="numcredito" required>
+                      </div>
+                      <div class="col-lg-4">
+                        <label for="codigoseg">Código de seg.</label>
+                        <input type="text" class="form-control" id="codigoseg" name="codigoseg" required>
+                      </div>
+                      <div class="col-lg-6">
+                        <label for="vencimiento">Vencimiento (MM/AA)</label>
+                        <input type="text" class="form-control" id="vencimiento" name="vencimiento" required>
+                      </div>
+                    </div>
 
-                  <br>
+                    <br>
 
-                  <input type="radio" name="credito" id="transferencia" required> <label for="transferencia">Transferencia bancaria</label>
-                  <hr style="border: 1px solid gray;">
-                  <div class="col-6">
-                    <label for="numcuenta">Número de cuenta</label>
-                    <input type="text" class="form-control" id="numcuenta" name="numcuenta" required>
+                    <input type="radio" name="credito" id="transferencia" required> <label for="transferencia">Transferencia bancaria</label>
+                    <hr style="border: 1px solid gray;">
+                    <div class="col-6">
+                      <label for="numcuenta">Número de cuenta</label>
+                      <input type="text" class="form-control" id="numcuenta" name="numcuenta" required>
+                    </div>
+
                   </div>
-
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
-    </div>
     </div>
   </main>
   <footer class="text-muted">

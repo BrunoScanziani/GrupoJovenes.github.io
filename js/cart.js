@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded",() => {
 
 function mostrarCarrito(){
     arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"));
+    console.log(arrayCarrito);
 
     if (localStorage.getItem("prodCarrito")){
 
@@ -52,7 +53,7 @@ function mostrarCarrito(){
         }
         
     }
-
+    console.log(array2)
     array2.forEach(elem => {
         mostrarArt(elem)
         }
@@ -86,7 +87,7 @@ function mostrarArt(element){
                         <strong id="subtotal${dataCart.id}"></strong> 
                     </div>
                     <div class="col">
-                        <button class="btn btn-danger"><i class='far fa-trash-alt'></i></button>
+                        <button class="btn btn-danger" onclick="borrar(${dataCart.id})"><i class='far fa-trash-alt'></i></button>
                     </div>    
                 </div>
                 <hr style="border: 1px solid lightgray; margin: 12px 0px; color: black;" class="bg-light">
@@ -163,3 +164,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+function borrar(id){
+    if (id != 50924){
+        arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"));
+        while (arrayCarrito.includes(id)){
+            let index = arrayCarrito.indexOf(id);
+            arrayCarrito.splice(index,1);
+        }
+        localStorage.setItem("prodCarrito",JSON.stringify(arrayCarrito));
+        window.location = "cart.html"
+    }else{
+        alert("No puede eliminar este producto.")
+    }
+}
