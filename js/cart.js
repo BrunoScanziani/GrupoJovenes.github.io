@@ -113,3 +113,53 @@ function modifSubtotal(id, price, moneda) {
     subtotalSpan.innerHTML = moneda + " " + cantidadInput.value * price;
 
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const tarjetaCredito = document.getElementById("credito");
+    const transferencia = document.getElementById("transferencia");
+    const tipoEnvioDiv = document.getElementById("tipoenvio");
+
+    tarjetaCredito.addEventListener("change", function() {
+        const camposTarjeta = [
+            document.getElementById("numcredito"),
+            document.getElementById("codigoseg"),
+            document.getElementById("vencimiento")
+        ];
+
+        const camposTransferencia = [document.getElementById("numcuenta")];
+
+        if (tarjetaCredito.checked) {
+            camposTarjeta.forEach(element => {
+                element.disabled = false;
+            });
+
+            camposTransferencia.forEach(element => {
+                element.disabled = true;
+            });
+
+            tipoEnvioDiv.innerHTML = "<p id='tipoenvio'>Crédito</p>";
+        }
+    });
+
+    transferencia.addEventListener("change", function() {
+        const camposTarjeta = [
+            document.getElementById("numcredito"),
+            document.getElementById("codigoseg"),
+            document.getElementById("vencimiento")
+        ];
+
+        const camposTransferencia = [document.getElementById("numcuenta")];
+
+        if (transferencia.checked) {
+            camposTransferencia.forEach(element => {
+                element.disabled = false;
+            });
+
+            camposTarjeta.forEach(element => {
+                element.disabled = true;
+            });
+
+            tipoEnvioDiv.innerHTML = "<p id='tipoenvio'>Transferencia</p>";
+        }
+    });
+});
