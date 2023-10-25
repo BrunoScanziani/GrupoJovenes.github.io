@@ -111,5 +111,118 @@ function modifSubtotal(id, price, moneda) {
     let subtotalSpan = document.getElementById("subtotal" + id);
 
     subtotalSpan.innerHTML = moneda + " " + cantidadInput.value * price;
-
 }
+
+//Accedo a los valores que necesito, la opción de envio seleccionada y los campos subtotal costo de envío y total.
+var opEnv1 = document.getElementById("Envio1");
+var opEnv2 = document.getElementById("Envio2");
+var opEnv3 = document.getElementById("Envio3");
+var subTot = document.getElementById("subTot");
+var costEnvio = document.getElementById("costoenvio");
+var total = document.getElementById("costototal");
+var costoENVIO = 0;
+
+
+//Establesco el costo de envío según la opción elegida
+function actualizarCosto() {
+    if (opEnv1.checked) {
+        costoENVIO = 0.15;
+    } else if (opEnv2.checked) {
+        costoENVIO = 0.07;
+    } else {
+        costoENVIO = 0.05;
+    }
+}
+
+
+//Agrego un evento para cada opción de forma que al darle click se actualize el campo costos acorde a eso.
+console.log(array2);
+opEnv1.addEventListener("click", function () {
+    actualizarCosto(); //Se establece el costo recargo por el envío
+    //Tomo todos los elementos del arreglo de cosas en el carrito y multiplico por la cantidad de elementos
+    var acumuladorSubtotal = 0;
+
+    array2.forEach(elem => {
+        //Para cada elemento del carrito tomo su valor del subtotal
+        var elemento = document.getElementById("subtotal" + elem.id).textContent;
+        var regex = /(USD|\UYU)\s(\d+)/;
+        var match = elemento.match(regex);
+        
+        // Coincidió con la expresión regular
+        var moneda = match[1];
+        var valor = parseFloat(match[2]);
+        
+        if (moneda === "USD") {
+            // El precio está en dólares, guárdalo directamente en una variable
+            acumuladorSubtotal += valor;
+          } else if (moneda === "UYU") {
+            // El precio está en pesos, convierte a dólares (supongamos que 1 dólar equivale a 40 pesos)
+            var precioEnPesos = valor;
+            acumuladorSubtotal += precioEnPesos / 40; // Cambia el factor de conversión según corresponda
+          }
+    }) //Termina el forEach
+
+    subTot.innerHTML = "USD " + acumuladorSubtotal.toFixed(2);
+    costEnvio.innerHTML = "USD " + (acumuladorSubtotal*costoENVIO).toFixed(2);
+    total.innerHTML = "USD " + (acumuladorSubtotal + acumuladorSubtotal*costoENVIO).toFixed(2);
+})
+
+opEnv2.addEventListener("click", function () {
+    actualizarCosto(); //Se establece el costo recargo por el envío
+    //Tomo todos los elementos del arreglo de cosas en el carrito y multiplico por la cantidad de elementos
+    var acumuladorSubtotal = 0;
+
+    array2.forEach(elem => {
+        //Para cada elemento del carrito tomo su valor del subtotal
+        var elemento = document.getElementById("subtotal" + elem.id).textContent;
+        var regex = /(USD|\UYU)\s(\d+)/;
+        var match = elemento.match(regex);
+        
+        // Coincidió con la expresión regular
+        var moneda = match[1];
+        var valor = parseFloat(match[2]);
+        
+        if (moneda === "USD") {
+            // El precio está en dólares, guárdalo directamente en una variable
+            acumuladorSubtotal += valor;
+          } else if (moneda === "UYU") {
+            // El precio está en pesos, convierte a dólares (supongamos que 1 dólar equivale a 40 pesos)
+            var precioEnPesos = valor;
+            acumuladorSubtotal += precioEnPesos / 40; // Cambia el factor de conversión según corresponda
+          }
+    }) //Termina el forEach
+
+    subTot.innerHTML = "USD " + acumuladorSubtotal.toFixed(2);
+    costEnvio.innerHTML = "USD " + (acumuladorSubtotal*costoENVIO).toFixed(2);
+    total.innerHTML = "USD " + (acumuladorSubtotal + acumuladorSubtotal*costoENVIO).toFixed(2);
+})
+
+opEnv3.addEventListener("click", function () {
+    actualizarCosto(); //Se establece el costo recargo por el envío
+    //Tomo todos los elementos del arreglo de cosas en el carrito y multiplico por la cantidad de elementos
+    var acumuladorSubtotal = 0;
+
+    array2.forEach(elem => {
+        //Para cada elemento del carrito tomo su valor del subtotal
+        var elemento = document.getElementById("subtotal" + elem.id).textContent;
+        var regex = /(usd|\UYU)\s(\d+)/i;
+        var match = elemento.match(regex);
+        
+        // Coincidió con la expresión regular
+        var moneda = match[1];
+        var valor = parseFloat(match[2]);
+        
+        if (moneda === "USD") {
+            // El precio está en dólares, guárdalo directamente en una variable
+            acumuladorSubtotal += valor;
+          } else if (moneda === "UYU") {
+            // El precio está en pesos, convierte a dólares (supongamos que 1 dólar equivale a 40 pesos)
+            var precioEnPesos = valor;
+            acumuladorSubtotal += precioEnPesos / 40; // Cambia el factor de conversión según corresponda
+          }
+    }) //Termina el forEach
+
+    subTot.innerHTML = "USD " + acumuladorSubtotal.toFixed(2);
+    costEnvio.innerHTML = "USD " + (acumuladorSubtotal*costoENVIO).toFixed(2);
+    total.innerHTML = "USD " + (acumuladorSubtotal + acumuladorSubtotal*costoENVIO).toFixed(2);
+})
