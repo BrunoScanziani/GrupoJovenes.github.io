@@ -241,39 +241,29 @@ let menuUsuario = document.getElementById("userDropdown")
 // Hace que el indicador de productos se actualice cada vez que el usuario quiera ver
 menuUsuario.addEventListener("click", () => (
   actualizarCantidadEnCarrito()
-
 ))
 
 function actualizarProdCarrito() {
-
   //Si no hay productos en el carrito crea un item en el localStorage y agrega este producto
-  if (!localStorage.getItem("prodCarrito")) {
+  if (!localStorage.getItem("prodCarrito")){
     arrayCarrito.push(Product.id)
     localStorage.setItem("prodCarrito", JSON.stringify(arrayCarrito));
-
   } else {
-  //Si hay productos en el carrito chequea si el id de este producto está guardado y lo agrega si no
-    arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"));
-
-    if (!arrayCarrito.includes(Product.id)) {
+      //Si hay productos en el carrito, los obtenemos de localStorage y los agregamos en arrayCarrito
+      arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"));
       arrayCarrito.push(Product.id);
+      console.log(arrayCarrito); //
       localStorage.setItem("prodCarrito", JSON.stringify(arrayCarrito));
-
-    }
   }
-
   actualizarCantidadEnCarrito()
-}
+} 
 
+//Cambia el contador del carrito
 function actualizarCantidadEnCarrito() {
-  if (localStorage.getItem("prodCarrito")) {
-    arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"))
-
-    let cantidadEnCarrito = 0
-
-    arrayCarrito.forEach(element => {
-      cantidadEnCarrito++
-    });
-    carritoNavItem.textContent = cantidadEnCarrito;
+  arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"))
+  let cantidadEnCarrito = 1;
+  if (arrayCarrito){
+  cantidadEnCarrito += arrayCarrito.length;
   }
+  carritoNavItem.textContent = cantidadEnCarrito;
 }
