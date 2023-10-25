@@ -343,10 +343,7 @@ a.custom-card:hover {
 @media (min-width: 768px) {
   /* Puedes agregar estilos específicos para pantallas más grandes aquí */
 }
-<<<<<<< HEAD
 
 input:disabled {
   background-color: #c5c5c5 !important; /* Cambia el color gris según tu preferencia */
 }
-=======
->>>>>>> 4bc29cfc1105ad65065cae3ed8a6d38edbdc0e27
