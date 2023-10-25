@@ -238,28 +238,54 @@ const carritoNavItem = document.getElementById("carrito-nav-item");
 
 let menuUsuario = document.getElementById("userDropdown")
 
+
+// Hace que el indicador de productos se actualice cada vez que el usuario quiera ver
+menuUsuario.addEventListener("click", () => (
+  actualizarCantidadEnCarrito()
+))
+
+function actualizarProdCarrito() {
+  //Si no hay productos en el carrito crea un item en el localStorage y agrega este producto
+  if (!localStorage.getItem("prodCarrito")){
+
 function actualizarProdCarrito() {
 
   //Si no hay productos en el carrito crea un item en el localStorage y agrega este producto
   if (!localStorage.getItem("prodCarrito")) {
+
     arrayCarrito.push(Product.id)
     localStorage.setItem("prodCarrito", JSON.stringify(arrayCarrito));
-
   } else {
+
+      //Si hay productos en el carrito, los obtenemos de localStorage y los agregamos en arrayCarrito
+      arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"));
+
   //Si hay productos en el carrito chequea si el id de este producto está guardado y lo agrega si no
     arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"));
 
     if (!arrayCarrito.includes(Product.id)) {
-      arrayCarrito.push(Product.id);
-      localStorage.setItem("prodCarrito", JSON.stringify(arrayCarrito));
 
-    }
+      arrayCarrito.push(Product.id);
+      console.log(arrayCarrito); //
+      localStorage.setItem("prodCarrito", JSON.stringify(arrayCarrito));
   }
+
+
 
   alert('Producto agregado al carrito');
 
   actualizarCantidadEnCarrito()
-}
+} 
+
+
+//Cambia el contador del carrito
+function actualizarCantidadEnCarrito() {
+  arrayCarrito = JSON.parse(localStorage.getItem("prodCarrito"))
+  let cantidadEnCarrito = 1;
+  if (arrayCarrito){
+  cantidadEnCarrito += arrayCarrito.length;
+  }
+  carritoNavItem.textContent = cantidadEnCarrito;
 
 // Hace que el indicador de productos se actualice cada vez que el usuario quiera ver
 menuUsuario.addEventListener("click", () => (

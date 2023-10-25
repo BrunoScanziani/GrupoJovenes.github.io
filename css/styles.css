@@ -343,14 +343,3 @@ a.custom-card:hover {
 @media (min-width: 768px) {
   /* Puedes agregar estilos específicos para pantallas más grandes aquí */
 }
-
-/*Clase para las imágenes del carrito */
-.img_cart {
-  width: 78%;
-  height: 78%;
-}
-
-.counter_cart {
-  width: 50%;
-  height: 50%;
-}

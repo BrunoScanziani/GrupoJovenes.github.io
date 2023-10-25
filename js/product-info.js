@@ -34,6 +34,14 @@ function ShowProductInfo() {
     container.innerHTML = `
             <br> 
             <br> 
+            <div class="d-flex flex-row justify-content-between">
+                <div class="col">
+                    <h2>${Product.name}</h2>
+                </div>
+                <div class="col-1">
+                    <!-- Agrega el botón de Comprar con el atributo href -->
+                    <button class="btn btn-primary btn-comprar" onclick="agregarAlCarrito()">Comprar</button>
+                </div>
             <div class="row">
             <div class="col-md-6">
                 <h2>${Product.name}</h2>
@@ -53,7 +61,7 @@ function ShowProductInfo() {
             <h5>Imágenes ilustrativas</h5>
             
             <br>
-            <div id="carouselImg" class="carousel slide" data-bs-ride="carousel" style="width:50%">
+            <div id="carouselImg" class="carousel slide col-md-8" data-bs-ride="carousel"">
                  
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -156,7 +164,7 @@ function ShowRelated() {
                             <br> <hr> <br>
                                 <h4>Productos relacionados</h4>
                                 <br>
-                                <div id="carouselRelated" class="carousel slide" data-bs-ride="carousel" style="width:50%">
+                                <div id="carouselRelated" class="carousel slide col-md-6" data-bs-ride="carousel"">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
                                             <img src="${Product.relatedProducts[0].image}" class="d-block w-100" onclick="setProdID(${Product.relatedProducts[0].id})">
@@ -176,3 +184,12 @@ function ShowRelated() {
                                 </div>
                             `
 }
+
+
+function agregarAlCarrito() {
+    // Actualiza el texto en el desplegable del carrito
+    actualizarProdCarrito();
+
+    alert('Producto agregado al carrito');
+}
+
