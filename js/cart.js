@@ -292,3 +292,22 @@ opEnv3.addEventListener("click", function () {
     costEnvio.innerHTML = "USD " + (acumuladorSubtotal*costoENVIO).toFixed(2);
     total.innerHTML = "USD " + (acumuladorSubtotal + acumuladorSubtotal*costoENVIO).toFixed(2);
 })
+
+//Si el form es válido alerta exitosamente, si no -> no.
+let form = document.getElementById("form");
+form.addEventListener("submit",(e) => {
+    if (form.checkValidity()){
+        alert("Compra exitosa.")
+    }else{
+        e.stopPropagation();
+        e.preventDefault();
+        alert("Debe completar todos los campos.")
+    }
+    //De igual manera valida el form para ver los campos no-válidos.
+    form.classList.add("was-validated")
+})
+
+//Evento para que el botón del modal no haga submit.
+document.getElementById("botonmodal").addEventListener("click",(e) => {
+    e.preventDefault()
+})

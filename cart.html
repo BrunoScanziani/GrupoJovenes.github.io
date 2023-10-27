@@ -74,21 +74,23 @@
           <hr style="border: 1px solid gray; margin: 12px 0px; color: black;">
           <br>
         
-          <form>
+          <form id="form" action="#" class="needs-validation" novalidate>
             <h4>Tipo de Envío:</h4>
             <br>
-            <label>
-              <input type="radio" name="opcion" value="opcion1" id="Envio1"> Premium 2 a 5 días (15%)
-            </label>
-            <br>
-            <label>
-              <input type="radio" name="opcion" value="opcion2" id="Envio2"> Express 5 a 8 días (7%)
-            </label>
-            <br>
-            <label>
-              <input type="radio" name="opcion" value="opcion3" id="Envio3"> Standard 12 a 15 días (5%)
-            </label>
-
+            <div>
+              <label>
+                <input type="radio" class="form-check-input radio" name="opcion" value="opcion1" id="Envio1" required> Premium 2 a 5 días (15%)
+              </label>
+              <br>
+              <label>
+                <input type="radio" class="form-check-input radio" name="opcion" value="opcion2" id="Envio2" required> Express 5 a 8 días (7%)
+              </label>
+              <br>
+              <label>
+                <input type="radio" class="form-check-input radio" name="opcion" value="opcion3" id="Envio3" required> Standard 12 a 15 días (5%)
+              </label>
+            </div>
+            
             <br><br>
 
             <h4>Dirección de Envío</h4>
@@ -188,7 +190,7 @@
 
                   </div>
                   <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+                    <button id="botonmodal" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
                   </div>
                 </div>
               </div>
