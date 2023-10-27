@@ -206,6 +206,8 @@ function actualTheme() {
       img2.classList.add("album", "py-5", "bg-light");
     }
   }
+  let feedback = document.querySelectorAll(".invalid-feedback")
+  feedback.forEach(e=>{e.style.color="red"})
 }
 
 var modeSwitch = document.getElementById("modeSwitch");

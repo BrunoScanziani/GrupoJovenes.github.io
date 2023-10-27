@@ -118,7 +118,7 @@ function modifSubtotal(id, price, moneda) {
 document.addEventListener("DOMContentLoaded", function() {
     const tarjetaCredito = document.getElementById("credito");
     const transferencia = document.getElementById("transferencia");
-    const tipoEnvioDiv = document.getElementById("tipoenvio");
+    const tipoPagoDiv = document.getElementById("tipopago");
 
     tarjetaCredito.addEventListener("change", function() {
         const camposTarjeta = [
@@ -138,7 +138,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 element.disabled = true;
             });
 
-            tipoEnvioDiv.innerHTML = "<p id='tipoenvio'>Crédito</p>";
+            tipoPagoDiv.innerHTML = "<p id='pago'>Crédito</p>";
+            modal()
         }
     });
 
@@ -160,7 +161,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 element.disabled = true;
             });
 
-            tipoEnvioDiv.innerHTML = "<p id='tipoenvio'>Transferencia</p>";
+            tipoPagoDiv.innerHTML = "<p id='tipopago'>Transferencia</p>";
+            modal()
         }
     });
 });
@@ -296,12 +298,27 @@ opEnv3.addEventListener("click", function () {
 //Si el form es válido alerta exitosamente, si no -> no.
 let form = document.getElementById("form");
 form.addEventListener("submit",(e) => {
+    let alert = document.getElementById("alert");
     if (form.checkValidity()){
-        alert("Compra exitosa.")
+        e.preventDefault()
+        alert.classList.remove("alert-danger");
+        alert.classList.add("alert-success");
+        alert.textContent = "!Has comprado con éxito!";
+        alert.classList.add("show");
+        setTimeout(() => {
+            alert.classList.remove("show");
+          }, 5000);
     }else{
         e.stopPropagation();
         e.preventDefault();
-        alert("Debe completar todos los campos.")
+        modal();
+        
+        alert.classList.add("alert-danger");
+        alert.textContent = "Debes completar todos los campos.";
+        alert.classList.add("show");
+        setTimeout(() => {
+            alert.classList.remove("show");
+          }, 5000);
     }
     //De igual manera valida el form para ver los campos no-válidos.
     form.classList.add("was-validated")
@@ -311,3 +328,16 @@ form.addEventListener("submit",(e) => {
 document.getElementById("botonmodal").addEventListener("click",(e) => {
     e.preventDefault()
 })
+
+let pago = document.getElementById("pago");
+let tipopago = document.getElementById("tipopago");
+
+function modal(){
+    if (tipopago.textContent == "No ha seleccionado"){
+        pago.classList.remove("is-valid");
+        pago.classList.add("is-invalid")
+    }else{
+        pago.classList.remove("is-invalid");
+        pago.classList.add("is-valid")
+    }
+}
