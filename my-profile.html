@@ -48,11 +48,60 @@
       </div>
     </div>
   </nav>
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+  <main class="pb-5">
+    <div class="row justify-content-md-center m-5">
+      <div class="container col-md-6 order-md-1">
+        <div class="d-flex flex-row justify-content-between">
+          <div class="col-2">
+              <h1>Perfil</h1>
+          </div>
+          <div class="col-2">
+              <img id="img" src="img/img_perfil.png" class="img-thumbnail col-lg-6">
+          </div>
+        </div>
+        <br>
+        <hr style="border: 1px solid gray; margin: 12px 0px; color: black;">
+        <form id="form" action="#" class="needs-validation" novalidate>
+          <div class="row gy-3">
+            <div class="col-lg-6">
+              <label for="nombre1">Primer nombre*</label>
+              <input type="text" class="form-control" id="nombre1" name="nombre1" required>
+            </div>
+            <div class="col-lg-6">
+              <label for="nombre2">Segundo nombre</label>
+              <input type="text" class="form-control" id="nombre2" name="nombre2">
+            </div>
+            <div class="col-lg-6">
+              <label for="nombre2">Primer apellido*</label>
+              <input type="text" class="form-control" id="apellido1" name="apellido1" required>
+            </div>
+            <div class="col-lg-6">
+              <label for="nombre2">Segundo apellido</label>
+              <input type="text" class="form-control" id="apellido2" name="apellido2">
+            </div>
+            <div class="col-lg-6">
+              <label for="nombre2">E-mail*</label>
+              <input type="text" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="col-lg-6">
+              <label for="nombre2">Imágen de perfil</label>
+              <input type="file" class="form-control" id="imagen" name="imagen">
+            </div>
+            <div class="col-lg-6">
+              <label for="nombre2">Teléfono de contacto*</label>
+              <input type="text" class="form-control" id="telefono" name="telefono" required>
+            </div>
+          </div>
+          <br>
+          <hr style="border: 1px solid gray; margin: 12px 0px; color: black;">
+          <br>
+          <button type="submit" class="col-lg-3 btn btn-primary">Guardar cambios</button>
+        </form>
       </div>
+    </div>
+    <div class="alert alert-dismissible fade" role="alert" id="alert">
+      <p>qaa</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   </main>
   <footer class="text-muted">
