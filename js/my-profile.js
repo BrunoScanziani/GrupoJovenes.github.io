@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Si existe la data, la mostramos
     if (data2){
         nombre1.value = data2.nombre1;
-        nombre2.value = data2.nombre1;
+        nombre2.value = data2.nombre2;
         apellido1.value = data2.apellido1;
         apellido2.value = data2.apellido2;
         telefono.value = data2.telefono;
