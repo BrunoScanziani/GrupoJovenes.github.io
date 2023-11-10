@@ -49,6 +49,7 @@ form.addEventListener("submit", (e) => {
         e.preventDefault();
         //Cargamos los datos al localStorage
         localStorage.setItem("data",JSON.stringify(data));
+        localStorage.setItem("email",email.value);
         //Mostramos un success alert
         alert.classList.remove("alert-danger");
         alert.classList.add("alert-success");
